@@ -1,0 +1,72 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+body{
+	font-size: 12px;
+}
+img { border:none; }
+ul li{ list-style:none; } 
+a{text-decoration:none; }
+
+table{
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #cccccc;
+    margin-top: 70px;
+    table-layout: fixed;
+ }
+table td{
+    border: 1px solid #cccccc;
+    height: 30px;
+}
+
+#td01{
+    overflow: hidden;
+    text-overflow:ellipsis; 
+    white-space:nowrap;
+}
+
+#tz:hover{
+  color: red;
+}
+.fanhui{
+    width: 70px;
+    height: 184px;
+    background: red;
+    position: fixed;
+    right: 88px;
+    top:100px
+}
+.one{
+    height: 59px;
+    border-bottom: 1px solid black;
+    line-height: 28px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+.one:hover{
+    background: yellow;
+}
+.two{
+    height: 61px;
+    cursor: pointer;
+    line-height: 28px;
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+}
+.two:hover{
+    background: yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+

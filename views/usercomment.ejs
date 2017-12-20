@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/usercomment.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="/bootstrap/js/jquery-1.10.1.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <style>
+      button{
+          cursor: pointer
+      }
+    </style>
+</head>
+<body>
+        <%- include("header",{title:"用户评论管理"})  %>
+        <div class="container">
+        <div class="fanhui">
+                <div class="one"  onclick="location.href='novel'">小说<br>列表</div>
+                <div class="two"  onclick="location.href='/'">返回<br>首页</div>
+                <div class="two"  onclick="history.back()">返回<br>上一级</div>
+               
+            </div>
+        <table>
+                <colgroup>   
+                    <col style="width:10%"></col>
+                    <col style="width:20%"></col>
+                    <col style="width:20%"></col>
+                    <col style="width:30%"></col>
+                    <col style="width:10%"></col>
+                    <col style="width:10%"></col>
+                </colgroup>
+                <thead>
+                    <tr>
+                       <td>序号</td>
+                       <td>书名</td>
+                       <td>标题</td>
+                       <td>内容</td>
+                       <td>评论人</td>
+                       <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% result.forEach((item,idx)=>{   %>
+                        <tr>
+                            <td><%- (idx+1)%></td>
+                            <td><a href="./index?id=<%- item.nid %>" id="tz">《<%- item.title %>》</a></td>
+                            <td id="td03"><%- item.pltitle%></td>
+                            <td id="td01"  contenteditable="true"><%- item.content%></td>
+                            <td><%- item.username %></td>
+                            <td>
+                            <button id="delbtn" onclick="location.href='./userdelete?uid=<%-item.uid%>'">删除</button>
+                            <button id="upbtn" data-toggle="modal" data-target="#updatebox"  onclick="updateone('<%-item.uid%>')">修改</button>
+
+                            </td>
+                        </tr>
+                    <% }) %>
+
+
+                </tbody> 
+            </table>
+      
+                <div class="modal fade" id="updatebox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="exampleModalLabel">修改用户信息</h4>
+                            </div>
+                            <div class="modal-body">
+                             
+                                
+                                <div class="form-group">
+                                  <label for="message-text" class="control-label">请输入修改后评论:</label>
+                                  <input type="text" class="form-control" id="upcontent" name="upcontent">
+                                </div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary" onclick="upd()">保存</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+        </div>
+
+</body>
+</html>
+
+
+<script>
+ var updateId=null;
+    function updateone(arg1){
+       updateId=arg1;
+    }
+    var url = "http://localhost:3000/users/conupdate";
+
+    function upd(){
+       
+        var upcontent = $('#upcontent');
+        var data = {
+                uid:updateId,
+                upcontent:upcontent.val()
+                
+            };
+        $.post(url,data,function(data){
+                $("#updatebox").modal("hide");
+                window.location.href = "/users/usercomment";
+            })
+    }
+
+   
+
+
+</script>

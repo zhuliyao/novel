@@ -1,0 +1,57 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+body{
+  font-size: 12px;
+  background: url(../images/psb.jpg);
+  background-size: 100%;
+}
+img { border:none; }
+ul li{ list-style:none; } 
+a{text-decoration:none; }
+ .container{
+    text-align: center
+} 
+#username_err{
+   height: 30px;
+   /* background: yellow; */
+   border: none;
+   color: red;
+   font-size: 12px;
+   width: 233px;
+   line-height: 30px;
+}
+#pwd_err{
+  height: 30px;
+  /* background: yellow; */
+  border: none;
+  color: red;
+  font-size: 12px;
+  width: 233px;
+  line-height: 30px
+}
+#repwd_err{
+  height: 30px;
+  /* background: yellow; */
+  border: none;
+  color: red;
+  font-size: 12px;
+  width: 233px;
+  line-height: 30px
+}
+#email_err{
+  height: 30px;
+  /* background: yellow; */
+  border: none;
+  color: red;
+  font-size: 12px;
+  width: 233px;
+  line-height: 30px
+}
+
+
+
+
+
+
+
+
+
