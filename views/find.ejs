@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../stylesheets/jquery-1.11.3.js"></script>
+    <style>
+      .sbox{
+	width: 236px;
+	border: 1px solid white;
+	float: left;
+    height: 356px;
+    margin-left: 150px;
+}
+.sbox img{
+	width: 200px;
+	height: 184px;
+	margin-left: 10px
+}
+.sbox h3{
+	margin-top: 20px;
+	text-align: center
+}
+.sbox p{
+	text-align: center;
+	color: #3377aa;
+	font-size: 14px;
+	margin-top: 5px;
+	overflow: hidden;
+	text-overflow:ellipsis; white-space:nowrap1
+}
+#tijiao{
+	margin-left: 38px;
+	margin-top: 13px;
+	width: 146px;
+	border: none;
+	cursor: pointer;
+	height: 30px;
+}
+    
+    
+    </style>
+    
+</head>
+<body>
+        <%- include("header",{title:"查找结果"})  %>
+        <% result.forEach((item,index)=>{
+               
+            %>
+        
+            <div class="sbox" data-id="<%- item.id%>">  
+            <img src="<%- item.image%>" alt="">   
+            <h3>出版日期：<%- item.pubdate%></h3> 
+            <p>作者：<%- item.author%></p>
+            <button id="tijiao" onclick="window.location.href='/users/index?id=<%- item.id%>' ">评论此书</button>
+        </div>
+
+        <% }) %>   
+</body>
+</html>
+<script>
+//    $.ajax({
+//              url:"/findbook",
+//              type:"post",
+//              data:{
+                 
+//              },
+//              success(data){
+//                 console.log(data);
+//              }
+//          });
+
+
+</script>

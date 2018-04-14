@@ -52,7 +52,9 @@
                             <td id="td01"  contenteditable="true"><%- item.content%></td>
                             <td><%- item.username %></td>
                             <td>
-                            <button id="delbtn" onclick="location.href='./userdelete?uid=<%-item.uid%>'">删除</button>
+                            <!-- <button id="delbtn" onclick="location.href='./userdelete?uid=<%-item.uid%>'">删除</button>
+                             -->
+                             <button id="delbtn" onclick="location.href='./userdelete?uid=<%-item.uid%>'">删除</button>
                             <button id="upbtn" data-toggle="modal" data-target="#updatebox"  onclick="updateone('<%-item.uid%>')">修改</button>
 
                             </td>

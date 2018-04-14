@@ -70,7 +70,9 @@ router.get("/rootlogin",(req,res)=>{
   res.render("rootlogin");
 })
 
-
+// router.get("/find",(req,res)=>{
+//   res.render("find");
+// })
 
 
 router.get("/login",(req,res)=>{
@@ -145,7 +147,7 @@ router.post("/userlogin",(req,res)=>{
    })
 });
 //  用户注册
-router.post("/registe",(req,res)=>{
+router.post("/register",(req,res)=>{
     var username=req.body.username;
     var password=req.body.password;
     var dbpass=req.body.password1;
@@ -227,7 +229,27 @@ router.get("/usermanage",(req,res)=>{
     })
     // res.render("user");
   })
-
+// 查询图书
+router.post("/findbook",(req,res)=>{
+  console.log(req.body);
+  var bname=req.body.bookname;
+  conn.getDb((err,db)=>{
+    if (err) throw err;
+    var novel=db.collection("allnovel");
+    novel.find({alt_title:bname},{author:1,pubdate:1,image:1,_id:0,id:1,pages:1}).toArray((err,result)=>{
+      if (err) throw err;
+      if(result.length>0){
+        
+        res.send(result);
+       
+      }else{
+        res.send("1")
+      }
+      
+      db.close()
+    })
+  })
+})
 //用户添加
 router.post("/userinsert",(req,res)=>{
   var username=req.body.username;

@@ -6,10 +6,12 @@ img { border:none; }
 ul li{ list-style:none; } 
 a{text-decoration:none; }
 .big{
+    /* margin-top: 20px; */
     width: 1198px;
-    height: 500px;
+    height: 400px;
     border: 1px solid black;
     margin: 0 auto;
+    overflow: hidden;
     /* background: red */
 }
 .left{
@@ -19,11 +21,11 @@ a{text-decoration:none; }
     float: left;
 }
 .left img{
-    width: 300px;
-    height: 400px;
+    width: 275px;
+    height: 356px;
 }
 .center{
-    width: 200px;
+    width: 225px;
     /* background: orange; */
     float: left;
     height: 400px;
@@ -51,6 +53,8 @@ h3{
    overflow: hidden;
    text-overflow:ellipsis; 
    white-space:nowrap;
+   margin-top: 5px;
+   
 }
 #p03{
     height: 20px;
@@ -60,24 +64,30 @@ h3{
    overflow: hidden;
    text-overflow:ellipsis; 
    white-space:nowrap;
+   margin-top: 5px;
 }
 #p04{
     height: 20px;
     text-align: center;
    line-height: 20px;
    font-size: 13px;
+   /* color: red; */
+   margin-top: 5px;
+   font-size: 16px;
+
 }
 
 #p05{
     display: inline-block;
     height: 248px;
-    width: 200px;
+    width: 225px;
    line-height: 20px;
    font-size: 13px;
    /* color: red; */
    margin-top: 10px;
    overflow: hidden;
    text-overflow:ellipsis; 
+   font-weight: bold;
 }
 .right{
     float: right;

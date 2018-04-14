@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../stylesheets/novel.css">
+    <script src="../stylesheets/pool.js"></script>
+    <script src="../stylesheets/jquery-1.11.3.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -14,25 +16,357 @@
                 <div class="two"  onclick="location.href='/'">返回<br>首页</div>
                 <div class="two"  onclick="history.back()">返回<br>上一级</div>
             </div>
-        <div class="wrap">
-           <!-- <div class="sbox">
-              <img src="./images/im59.jpg" alt="">
-              <h3>出版日期：1999</h3>
-              <p>作者：左旭</p>
-              <button id="tijiao">评论此书</button>
-           </div> -->
-            <% result.forEach((item,index)=>{ %>
-                <div class="sbox" data-id="<%- item.id%>">  
-                  <img src="<%- item.image%>" alt="">   
-                  <h3>出版日期：<%- item.pubdate%></h3> 
-                  <p>作者：<%- item.author%></p>
-                  <button id="tijiao" onclick="window.location.href='/users/index?id=<%- item.id%>' ">评论此书</button>
-              </div>
-            <% }) %>
-
-
-
+        <!-- 楼层 -->
+        <ul id="Floor">
+            <li>文学</li>
+            <li>历史</li>
+            <li>情感</li>
+            <li>古典</li>
+            <li>军事</li>
+           
+        </ul>
+        <div id="search">
+            <div id="bg">
+                <input type="text" id="book" placeholder="请输入书名"/>
+                <div id="go">搜索</div>
+            </div>
         </div>
-             
+            <!-- 轮播图 -->
+            <div id="banner">
+                <ul id="list">
+                    <li class="li1"><img src="../images/banner1.jpg" alt=""></li>
+                    <li class="li1"><img src="../images/banner2.jpg" alt=""></li>
+                    <li class="li1"><img src="../images/banner3.jpg" alt=""></li>
+                    <li class="li1"><img src="../images/banner4.jpg" alt=""></li>               
+                    <li class="li1"><img src="../images/banner5.jpg" alt=""></li>
+                    
+                </ul>
+                <div class="direction">
+                    <a href="##">&lt;</a>
+                    <a href="##">&gt;</a>
+                </div>
+                <div class="btn">
+                    <a href="##" class="active"></a>
+                    <a href="##"></a>
+                    <a href="##"></a>
+                    <a href="##"></a>
+                    <a href="##"></a>
+                </div>
+            </div>
+            <div class="zly">
+        <div class="wrap">
+           <div class="main">
+                <div class="top">
+                    <p>文学类图书</p>
+					
+					<div class="one_top_right">
+						<a href="##">查看更多</a>
+					</div>
+                </div>
+                <div class="one_left">
+				
+                </div>
+                <div id="tushu">
+                     <% result.forEach((item,index)=>{
+               
+                            %>
+                        
+                            <div class="sbox" data-id="<%- item.id%>">  
+                            <img src="<%- item.image%>" alt="">   
+                            <h3>出版日期：<%- item.pubdate%></h3> 
+                            <p>作者：<%- item.author%></p>
+                            <button id="tijiao" onclick="window.location.href='/users/index?id=<%- item.id%>' ">评论此书</button>
+                        </div>
+                
+                        <% }) %>                                 
+                </div>
+           </div>
+        </div>
+        </div>
+          <!-- 历史类图书 -->
+          <div class="zly">
+        <div class="wrap1">
+                <div class="main01">
+                        <div class="top">
+                            <p>历史类图书</p>
+                            
+                            <div class="one_top_right">
+                                <a href="##">查看更多</a>
+                            </div>
+                        </div>
+                        <div class="one_left">
+                        
+                        </div>
+                        <div id="tushu">
+                                <% result1.forEach((item,index)=>{
+                       
+                                    %>
+                                
+                                    <div class="sbox" data-id="<%- item.id%>">  
+                                    <img src="<%- item.image%>" alt="">   
+                                    <h3>出版日期：<%- item.pubdate%></h3> 
+                                    <p>作者：<%- item.author%></p>
+                                    <button id="tijiao" onclick="window.location.href='/users/index?id=<%- item.id%>' ">评论此书</button>
+                                </div>
+                        
+                                <% }) %>
+                            
+                    
+                            
+                        </div>
+                   </div>
+        </div>
+    </div>
+        <!-- 情感类图书 -->
+        <div class="zly">
+        <div class="wrap2">
+                <div class="main01">
+                        <div class="top">
+                            <p>情感类图书</p>
+                            
+                            <div class="one_top_right">
+                                <a href="##">查看更多</a>
+                            </div>
+                        </div>
+                        <div class="one_left">
+                        
+                        </div>
+                        <div id="tushu">
+                                <% result2.forEach((item,index)=>{
+                       
+                                    %>
+                                
+                                    <div class="sbox" data-id="<%- item.id%>">  
+                                    <img src="<%- item.image%>" alt="">   
+                                    <h3>出版日期：<%- item.pubdate%></h3> 
+                                    <p>作者：<%- item.author%></p>
+                                    <button id="tijiao" onclick="window.location.href='/users/index?id=<%- item.id%>' ">评论此书</button>
+                                </div>
+                        
+                                <% }) %>
+                         
+                            
+                        </div>
+                   </div>
+        </div></div>
+
+
+       <!-- 古典类图书 -->
+       <div class="zly">
+        <div class="wrap3">
+                <div class="main01">
+                        <div class="top">
+                            <p>古典类图书</p>
+                            
+                            <div class="one_top_right">
+                                <a href="##">查看更多</a>
+                            </div>
+                        </div>
+                        <div class="one_left">
+                        
+                        </div>
+                        <div id="tushu">
+                                <% result3.forEach((item,index)=>{
+                       
+                                    %>
+                                
+                                    <div class="sbox" data-id="<%- item.id%>">  
+                                    <img src="<%- item.image%>" alt="">   
+                                    <h3>出版日期：<%- item.pubdate%></h3> 
+                                    <p>作者：<%- item.author%></p>
+                                    <button id="tijiao" onclick="window.location.href='/users/index?id=<%- item.id%>' ">评论此书</button>
+                                </div>
+                        
+                                <% }) %>
+                            
+                            <!-- <div class="sbox" data-id="11">
+                                <img src="https://img3.doubanio.com/lpic/s10199825.jpg" alt="">
+                                <h3>出版日期：1999</h3>
+                                <p>作者：左旭</p>
+                                <button id="tijiao">评论此书</button>
+                            </div> -->
+                            
+                        </div>
+                   </div>
+        </div>
+        </div>
+
+        <!-- 军事类图书 -->
+        <div class="zly">
+        <div class="wrap4">
+                <div class="main01">
+                        <div class="top">
+                            <p>军事类图书</p>
+                            
+                            <div class="one_top_right">
+                                <a href="##">查看更多</a>
+                            </div>
+                        </div>
+                        <div class="one_left">
+                        
+                        </div>
+                        <div id="tushu">
+                                <% result4.forEach((item,index)=>{
+                       
+                                    %>
+                                
+                                    <div class="sbox" data-id="<%- item.id%>">  
+                                    <img src="<%- item.image%>" alt="">   
+                                    <h3>出版日期：<%- item.pubdate%></h3> 
+                                    <p>作者：<%- item.author%></p>
+                                    <button id="tijiao" onclick="window.location.href='/users/index?id=<%- item.id%>' ">评论此书</button>
+                                </div>
+                        
+                                <% }) %>
+                       
+                            
+                        </div>
+                   </div>
+        </div>
+    </div>   
 </body>
 </html>
+<script>
+    window.onload = function(){
+	var obanner = document.getElementById('banner');
+	var oList = document.getElementById('list');
+	var aLi = document.querySelectorAll(".li1")
+	var odir = document.querySelector('.direction');
+	var aA = odir.getElementsByTagName('a');
+	var oBtn = document.querySelector('.btn');
+	var aCircel = oBtn.getElementsByTagName('a');
+	var iNow = 0;
+	//设置ul的宽度
+	oList.style.width=aLi.length*aLi[0].offsetWidth+'px';
+	//点击左侧的时候
+	aA[0].onclick = function(){
+		if(iNow==0){
+            iNow=aLi.length;
+            // tab()
+		}
+        iNow--;
+        tab()
+		move(oList,{'left':iNow*-aLi[0].offsetWidth})
+	}
+	//点击右侧的时候
+	aA[1].onclick = function(){
+		if(iNow==aLi.length-1){
+            
+            iNow=0;
+        //    tab()
+		}else{
+            iNow++;
+            // console.log(aCircel.length);
+        }
+        tab()
+        
+		move(oList,{'left':iNow*-aLi[0].offsetWidth})
+	}
+
+	//小点
+	for(var i=0;i<aCircel.length;i++){
+		aCircel[i].index=i
+		aCircel[i].onmouseover = function(){
+			for(var j=0;j<aCircel.length;j++){
+				aCircel[j].className='';
+			}
+			iNow = this.index;
+			aCircel[iNow].className='active'
+			move(oList,{'left':iNow*-aLi[0].offsetWidth})
+		}
+	}
+	//轮播
+	
+	autoPlay()
+
+	function autoPlay(){
+		timer = setInterval(function(){
+			if(iNow==aLi.length-1){
+				iNow=0;
+			}else{
+				iNow++;
+			}
+			tab()
+		},3000)
+	}
+
+	obanner.onmouseover = function(){
+        clearInterval(timer);
+        // console.log("111")
+	}
+
+	obanner.onmouseout = function(){
+		autoPlay();
+	}
+
+	function tab(){
+		for(var j=0;j<aCircel.length;j++){
+				aCircel[j].className='';
+		}
+		aCircel[iNow].className='active'
+		move(oList,{'left':iNow*-aLi[0].offsetWidth})
+    }
+
+}
+
+$(function(){
+    $("#go").click(function(){
+        $.get("/users/find",{bookname:$("#book").val()},function(result) {
+            console.log(result);
+            if(result=="1"){
+                alert("没有找到")
+            }else{
+                // location.href = "/users/find?author=bookname";
+                var url="/users/find?bookname="+$("#book").val();
+                location.href =url
+                console.log("111")
+            }
+            
+        })
+    })
+    var allFloor=$(".zly")
+    console.log(allFloor)
+	var Floor=$("#Floor");
+    var allLi=$("#Floor>li");
+    var ch = $(window).height();
+    console.log(ch)
+    $(window).scroll(function(){
+    	var scrollT=$(window).scrollTop();
+    	if(scrollT>800-ch/2){
+
+    		Floor.fadeIn()
+    	}else{
+    		Floor.fadeOut()
+    	}
+    	// allFloor.each(function(i){
+    	// 	var t=$(this).offset().top;
+        //     var h=$(this).outerHeight();
+        //     console.log(t)
+    	// 	if((t<scrollT+ch/2)&&(t+h>scrollT+ch/2)){
+		// 			allLi.eq(i).addClass("active1").siblings().removeClass("active1");	
+        //     }    		
+        // });
+         allFloor.each(function(index,element){
+             var _top=$(this).offset().top;
+             console.log(_top)
+             if(scrollT>_top-ch/2+300){
+                allLi.eq(index).addClass("active1").siblings().removeClass("active1");
+             }
+         })
+
+
+    	 	
+    })
+    allLi.click(function(){
+            
+            var t=allFloor.eq($(this).index()).offset().top;
+            console.log(t)
+    		$("body,html").stop().animate({
+					scrollTop:t
+					
+				},500)
+    	})  
+})
+
+  
+</script>
